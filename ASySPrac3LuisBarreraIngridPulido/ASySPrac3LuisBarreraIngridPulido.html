@@ -76,7 +76,11 @@ stem(x,y)
 axis([minx maxx miny maxy])
 </pre><img vspace="5" hspace="5" src="ASySPrac3LuisBarreraIngridPulido_01.png" style="width:560px;height:420px;" alt=""> <pre class="codeinput">f =@(n) exp(-n/5).*cos(pi*n/5).*(n&gt;=0);
 <span class="comment">%////////</span>
-</pre><pre class="codeinput"><span class="comment">% figure</span>
+</pre><pre class="codeinput">x=-10:10;
+y=4;
+z=fun1(x,y);
+plot(x,z)
+<span class="comment">% figure</span>
 <span class="comment">% t=-20:0.1:20;</span>
 <span class="comment">% t1=-20:0.5:20;</span>
 <span class="comment">% plot(t,f(t),t,f(t),'ro',t1,f(t1))</span>
@@ -110,7 +114,7 @@ axis([minx maxx miny maxy])
 <span class="comment">% stem(k,f1k,'y','LineWidth',3)</span>
 <span class="comment">% %stem(k,f2k,'b','LineWidth',3)</span>
 <span class="comment">% hold off</span>
-</pre><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2017a</a><br></p></div><!--
+</pre><img vspace="5" hspace="5" src="ASySPrac3LuisBarreraIngridPulido_02.png" style="width:560px;height:420px;" alt=""> <p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2017a</a><br></p></div><!--
 ##### SOURCE BEGIN #####
 %% Práctica 3: Señales en tiempo discreto
 %
@@ -155,7 +159,10 @@ f =@(n) exp(-n/5).*cos(pi*n/5).*(n>=0);
 %%
 % 
 % 
-
+x=-10:10;
+y=4;
+z=fun1(x,y);
+plot(x,z)
 % figure
 % t=-20:0.1:20;
 % t1=-20:0.5:20;
