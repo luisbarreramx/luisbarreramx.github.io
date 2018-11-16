@@ -6,7 +6,7 @@
    <!--
 This HTML was auto-generated from MATLAB code.
 To make changes, update the MATLAB code and republish this document.
-      --><title>Pr&aacute;ctica 3: Se&ntilde;ales en tiempo discreto</title><meta name="generator" content="MATLAB 9.2"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-11-09"><meta name="DC.source" content="ASySPrac3LuisBarreraIngridPulido.m"><style type="text/css">
+      --><title>Pr&aacute;ctica 3: Se&ntilde;ales en tiempo discreto</title><meta name="generator" content="MATLAB 9.2"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-11-15"><meta name="DC.source" content="ASySPrac3LuisBarreraIngridPulido.m"><style type="text/css">
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
 
 html { min-height:100%; margin-bottom:1px; }
@@ -66,55 +66,30 @@ table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px soli
 
 
 
-  </style></head><body><div class="content"><h1>Pr&aacute;ctica 3: Se&ntilde;ales en tiempo discreto</h1><!--introduction--><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Integrantes</a></li><li><a href="#2">Objetivos:</a></li><li><a href="#3">Introducci&oacute;n</a></li></ul></div><h2 id="1">Integrantes</h2><p>Luis Francisco Barrera Bautista</p><p>Ingrid Pulido Morales</p><h2 id="2">Objetivos:</h2><div><ul><li>Manipulaci&oacute;n b&aacute;sica de MATLAB</li><li>Gr&aacute;ficas de se&ntilde;ales reales y complejas discretas</li><li>Transformaci&oacute;n de se&ntilde;ales discretas (escalamientos y traslaciones)</li><li>Calculo de energ&iacute;a y potencia de se&ntilde;ales discretas</li></ul></div><h2 id="3">Introducci&oacute;n</h2><p>Las se&ntilde;ales en tiempo discreto se representan matem&aacute;ticamente como secuencias de n&uacute;meros. Una secuencia de n&uacute;meros x, en los que el n-&eacute;simo n&uacute;mero se indica como x[n], se escribe formalmente as&iacute;:</p><p><img src="ASySPrac3LuisBarreraIngridPulido_eq03888157404719222356.png" alt="$x={x[n]}, -\infty < n < \infty$" style="width:148px;height:15px;"></p><p>siendo n un n&uacute;mero entero.</p><p>Usualmente las se&ntilde;ales en tiempo discreto se representan gr&aacute;ficamente de la siguiente manera</p><pre class="codeinput">x=-7:7;
-y=[-1,-1,1,1,1,1,-1,-1,1,1,1,1,-1,-1,1];
+  </style></head><body><div class="content"><h1>Pr&aacute;ctica 3: Se&ntilde;ales en tiempo discreto</h1><!--introduction--><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Integrantes</a></li><li><a href="#2">Objetivos</a></li><li><a href="#3">Introducci&oacute;n</a></li><li><a href="#4">Desarrollo</a></li><li><a href="#5">Punto 1</a></li><li><a href="#6">Punto 2</a></li><li><a href="#7">Punto 3</a></li><li><a href="#8">Punto 4</a></li><li><a href="#9">Punto 5</a></li><li><a href="#10">Punto 6</a></li></ul></div><h2 id="1">Integrantes</h2><p>Luis Francisco Barrera Bautista</p><p>Ingrid Pulido Morales</p><h2 id="2">Objetivos</h2><div><ul><li>Manipulaci&oacute;n b&aacute;sica de MATLAB</li><li>Gr&aacute;ficas de se&ntilde;ales reales y complejas discretas</li><li>Transformaci&oacute;n de se&ntilde;ales discretas (escalamientos y traslaciones)</li><li>Calculo de energ&iacute;a y potencia de se&ntilde;ales discretas</li></ul></div><h2 id="3">Introducci&oacute;n</h2><p>Las se&ntilde;ales en tiempo discreto se representan matem&aacute;ticamente como secuencias de n&uacute;meros. Una secuencia de n&uacute;meros x, en los que el n-&eacute;simo n&uacute;mero se indica como x[n], se escribe formalmente as&iacute;:</p><p><img src="ASySPrac3LuisBarreraIngridPulido_eq03888157404719222356.png" alt="$x={x[n]}, -\infty < n < \infty$" style="width:148px;height:15px;"></p><p>siendo n un n&uacute;mero entero.</p><p>Este tipo de se&ntilde;ales sus alturas solo se evaluan en n&uacute;meros enteros. Usualmente las se&ntilde;ales en tiempo discreto se representan gr&aacute;ficamente de la siguiente manera</p><p><img vspace="5" hspace="5" src="graf1in.PNG" alt=""> </p><p><b>Escalamiento Horizontal de se&ntilde;ales en tiempoo discreto</b></p><p>El escalamiento horizontal es una operaci&oacute;n que se realiza a se&ntilde;ales base para generar nuevas se&ntilde;ales en tiempo discreto.</p><p><img src="ASySPrac3LuisBarreraIngridPulido_eq11745163228586196877.png" alt="$g[n]=_{h}\varepsilon _{b} {f[n]} = f[bn]$" style="width:111px;height:12px;"></p><p>Lo que significa que se va a escalar de manera horizontal (lo que indica la h) b unidades a la se&ntilde;al.</p><p><b>Ejemplo 1</b></p><p>Se tiene la siguiente se&ntilde;al discreta</p><p><img vspace="5" hspace="5" src="fig3in.PNG" alt=""> </p><p><img vspace="5" hspace="5" src="fig4in.PNG" alt=""> </p><p>Se va a escalar a <img src="ASySPrac3LuisBarreraIngridPulido_eq08869918233192190351.png" alt="$f[n]$" style="width:19px;height:12px;"> con un escalamiento hoizontal con <img src="ASySPrac3LuisBarreraIngridPulido_eq08473778998315464458.png" alt="$b=2$" style="width:26px;height:9px;">. Sustituyendo en la f&oacute;rmula original donde exista <img src="ASySPrac3LuisBarreraIngridPulido_eq07176608972229272127.png" alt="$&#34;n&#34;$" style="width:17px;height:9px;"> por <img src="ASySPrac3LuisBarreraIngridPulido_eq02031501670450738507.png" alt="$&#34;2n&#34;$" style="width:23px;height:9px;"> y simplificando, obtenemos</p><p><img vspace="5" hspace="5" src="fig2in.PNG" alt=""> </p><p>Esto significa que la altura ser&aacute; 1 si la n est&aacute; entre <img src="ASySPrac3LuisBarreraIngridPulido_eq06540080601207558995.png" alt="$-\frac{3}{2}$" style="width:14px;height:14px;"> y <img src="ASySPrac3LuisBarreraIngridPulido_eq00202142981986870057.png" alt="$0$" style="width:6px;height:9px;">, pero solo se evalauar&aacute;n los n&uacute;meros enteros entre estas dos cantidades los cuales son <img src="ASySPrac3LuisBarreraIngridPulido_eq09495369197506271969.png" alt="$-1$" style="width:14px;height:8px;"> y <img src="ASySPrac3LuisBarreraIngridPulido_eq00202142981986870057.png" alt="$0$" style="width:6px;height:9px;">.</p><p>De igual forma en <img src="ASySPrac3LuisBarreraIngridPulido_eq07217890963976627529.png" alt="$-2n+1$" style="width:41px;height:10px;"> nos quedaremos solamente con el <img src="ASySPrac3LuisBarreraIngridPulido_eq18395870634560867587.png" alt="$1$" style="width:5px;height:8px;">. Y se obtiene la siguiente gr&aacute;fica</p><p><img vspace="5" hspace="5" src="fig5in.PNG" alt=""> </p><div><ul><li>Cuando <img src="ASySPrac3LuisBarreraIngridPulido_eq07697747679137027182.png" alt="$b&gt;1$" style="width:26px;height:10px;"> se tiene una compresi&oacute;n de la se&ntilde;al, es decir, se hace m&aacute;s corta horizontalmente.</li></ul></div><p>Tambi&eacute;n sucede que en el escalamiento horizontal de se&ntilde;ales discretas se pierden "datos" a lo cual se le llama Decimation, como se observa en la gr&aacute;fica <img src="ASySPrac3LuisBarreraIngridPulido_eq03046981248997883284.png" alt="$g[n]$" style="width:18px;height:12px;"></p><p><b>Ejemplo 2</b></p><p><img vspace="5" hspace="5" src="fig6in.PNG" alt=""> </p><p>Para calcular las alturas tenemos que evaluar los enteros de <img src="ASySPrac3LuisBarreraIngridPulido_eq08178256298463084111.png" alt="$-9 \leq n\leq 0$" style="width:58px;height:10px;"> y <img src="ASySPrac3LuisBarreraIngridPulido_eq01168743294465296588.png" alt="$3\leq n\leq 9$" style="width:50px;height:10px;"> en <img src="ASySPrac3LuisBarreraIngridPulido_eq03670879432623751831.png" alt="$f[\frac{1}{3}n]$" style="width:26px;height:14px;"> y ver si el resultado est&aacute; definido en la gr&aacute;fica original, es decir, si evaluamos a 9 en <img src="ASySPrac3LuisBarreraIngridPulido_eq03670879432623751831.png" alt="$f[\frac{1}{3}n]$" style="width:26px;height:14px;"> queda como resultado un 3, el cual est&aacute; definido en la gr&aacute;fica original con altura <img src="ASySPrac3LuisBarreraIngridPulido_eq18395870634560867587.png" alt="$1$" style="width:5px;height:8px;">, pero si evaluamos el numero 8, quedan <img src="ASySPrac3LuisBarreraIngridPulido_eq08667714992345637943.png" alt="$\frac{8}{3}$" style="width:5px;height:14px;"> y  ese resultado no est&aacute; definido en la gr&aacute;fica. Por lo tanto</p><p><img vspace="5" hspace="5" src="fig7in.PNG" alt=""> </p><div><ul><li>Cuando  <img src="ASySPrac3LuisBarreraIngridPulido_eq00422850143095053977.png" alt="$0<b<1$" style="width:47px;height:10px;"> la se&ntilde;al se expande y en se&ntilde;ales discretas cuando expandimos una se&ntilde;al, podemos decir que le faltan "datos", o que ocurre una "Interpolaci&oacute;n".</li></ul></div><p>Las muestras faltantes no est&aacute;n definidas o se les considera como ceros.</p><p><b>Ejemplo 3</b></p><div><ul><li>Cuando <img src="ASySPrac3LuisBarreraIngridPulido_eq02694523426977600071.png" alt="$b=-1$" style="width:35px;height:9px;"> la se&ntilde;al se invierte horizontalmente de la orginial como se muestra a continuaci&oacute;n.</li></ul></div><p><img vspace="5" hspace="5" src="fig9in.PNG" alt=""> </p><p><img vspace="5" hspace="5" src="fig8in.PNG" alt=""> </p><div><ul><li>Si <img src="ASySPrac3LuisBarreraIngridPulido_eq00063951915132850579.png" alt="$b<-2$" style="width:35px;height:10px;">, la se&ntilde;al se comprime e invierte horizontalmente.</li></ul></div><p><img vspace="5" hspace="5" src="fig10in.PNG" alt=""> </p><div><ul><li>Si <img src="ASySPrac3LuisBarreraIngridPulido_eq12865466795558123153.png" alt="$-1<b<0$" style="width:56px;height:10px;">, la se&ntilde;al se expande e invierte horizontalmente.</li></ul></div><p><img vspace="5" hspace="5" src="fig11in.PNG" alt=""> </p><h2 id="4">Desarrollo</h2><h2 id="5">Punto 1</h2><p><b>Creaci&oacute;n de funciones</b></p><p>Se mostrar&aacute; un ejemplo de una funci&oacute;n que reciba 3 par&aacute;metros. Tomando en cuenta que r <img src="ASySPrac3LuisBarreraIngridPulido_eq06027160402585031251.png" alt="$\epsilon \Re^{+}$" style="width:19px;height:10px;">, W <img src="ASySPrac3LuisBarreraIngridPulido_eq00783400941651877731.png" alt="$\epsilon \Re$" style="width:13px;height:9px;"> y n <img src="ASySPrac3LuisBarreraIngridPulido_eq12978362910299556666.png" alt="$\epsilon N$" style="width:15px;height:9px;"></p><pre class="language-matlab"><span class="keyword">function</span> [res]=fun1(r,W,n)
+res = r.^n.*cos(W*n)+r.^n.*sin(W*n)*i;
+<span class="keyword">end</span>
+</pre><h2 id="6">Punto 2</h2><p><b>Funciones de <img src="ASySPrac3LuisBarreraIngridPulido_eq11762437903056693993.png" alt="$f: N\rightarrow R$" style="width:68px;height:14px;"></b></p><pre class="codeinput">n=-2:10;
+a=0.9;
+grafdisc1(n,a)
+</pre><img vspace="5" hspace="5" src="ASySPrac3LuisBarreraIngridPulido_01.png" style="width:560px;height:420px;" alt=""> <h2 id="7">Punto 3</h2><div><ul><li><img src="ASySPrac3LuisBarreraIngridPulido_eq08869918233192190351.png" alt="$f[n]$" style="width:19px;height:12px;"> para <img src="ASySPrac3LuisBarreraIngridPulido_eq00588923079635497361.png" alt="$r=1.1, \omega = 0.5$" style="width:79px;height:10px;"> y <img src="ASySPrac3LuisBarreraIngridPulido_eq15612259104710900260.png" alt="$n \epsilon -2...20$" style="width:54px;height:9px;"></li></ul></div><p><img vspace="5" hspace="5" src="fig32.PNG" alt=""> </p><p><img vspace="5" hspace="5" src="fig32_1.PNG" alt=""> </p><p><img vspace="5" hspace="5" src="fig32_2.png" alt=""> </p><h2 id="8">Punto 4</h2><p><b>Energ&iacute;a de una se&ntilde;al discreta</b></p><p>A continuaci&oacute;n se muestra el c&oacute;digo para obtener la Energ&iacute;a de una se&ntilde;al en tiempo discreto</p><pre class="language-matlab"><span class="keyword">function</span> [energia] = energiadis(time,alt )
+energia=sum((abs(alt)).^2);
+x=time;
+y=alt;
 maxx=max(x)+1;
 minx=min(x)-1;
 maxy=max(y)+1;
 miny=min(y)-1;
 stem(x,y)
 axis([minx maxx miny maxy])
-</pre><img vspace="5" hspace="5" src="ASySPrac3LuisBarreraIngridPulido_01.png" style="width:560px;height:420px;" alt=""> <pre class="codeinput">f =@(n) exp(-n/5).*cos(pi*n/5).*(n&gt;=0);
-<span class="comment">%////////</span>
-</pre><pre class="codeinput">x=-10:10;
-y=4;
-z=fun1(x,y);
-plot(x,z)
-<span class="comment">% figure</span>
-<span class="comment">% t=-20:0.1:20;</span>
-<span class="comment">% t1=-20:0.5:20;</span>
-<span class="comment">% plot(t,f(t),t,f(t),'ro',t1,f(t1))</span>
-<span class="comment">% %////////</span>
-<span class="comment">% figure</span>
-<span class="comment">% n = -20:20;</span>
-<span class="comment">% stem(n,f(n))</span>
-<span class="comment">% grid on</span>
-<span class="comment">% %////////</span>
-<span class="comment">% figure</span>
-<span class="comment">% subplot(1,3,1)</span>
-<span class="comment">% stem(n,f(-2*n))</span>
-<span class="comment">% grid on</span>
-<span class="comment">% subplot(1,3,2)</span>
-<span class="comment">% stem(n,f(n))</span>
-<span class="comment">% grid on</span>
-<span class="comment">% subplot(1,3,3)</span>
-<span class="comment">% stem(n,f(-2*n+1))</span>
-<span class="comment">% grid on</span>
-<span class="comment">% %///////////</span>
-<span class="comment">% figure</span>
-<span class="comment">% t = -10:pi/100:10;</span>
-<span class="comment">% f1t = cos(3*pi/7*t);</span>
-<span class="comment">% f2t = cos(17*pi/7*t);</span>
-<span class="comment">% plot(t,f1t,'k','LineWidth',3); hold on</span>
-<span class="comment">% plot(t,f2t,'r','LineWidth',3)</span>
-<span class="comment">% grid on</span>
-<span class="comment">% k= -10:10;</span>
-<span class="comment">% f1k = cos(3*pi/7*k);</span>
-<span class="comment">% f2k = cos(17*pi/7*k);</span>
-<span class="comment">% stem(k,f1k,'y','LineWidth',3)</span>
-<span class="comment">% %stem(k,f2k,'b','LineWidth',3)</span>
-<span class="comment">% hold off</span>
-</pre><img vspace="5" hspace="5" src="ASySPrac3LuisBarreraIngridPulido_02.png" style="width:560px;height:420px;" alt=""> <p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2017a</a><br></p></div><!--
+<span class="keyword">end</span>
+</pre><h2 id="9">Punto 5</h2><p><b>Problemas Resueltos (Lathi)</b></p><div><ul><li>3.1.1 c): Encuentre la energ&iacute;a de la se&ntilde;al descrita.</li></ul></div><p>Sabemos que</p><p><img src="ASySPrac3LuisBarreraIngridPulido_eq17752638098868953222.png" alt="$$E_{f}=\sum_{n=-\infty}^{\infty}\left \| f[n]  \right \| ^{2}$$" style="width:94px;height:33px;"></p><p>Calcul&aacute;ndola con la funci&oacute;n anterior (energiadis)</p><pre class="codeinput">ENERGIA=energiadis([-4:6],[0,-9,-6,-3,0,3,6,9,0,0,0])
+</pre><pre class="codeoutput">
+ENERGIA =
+
+   252
+
+</pre><img vspace="5" hspace="5" src="ASySPrac3LuisBarreraIngridPulido_02.png" style="width:560px;height:420px;" alt=""> <h2 id="10">Punto 6</h2><div><ul><li>3.2.3: Para la se&ntilde;al mostrada a continuaci&oacute;n, bosqueja las siguientes se&ntilde;ales</li></ul></div><p><img vspace="5" hspace="5" src="fig6_a.PNG" alt=""> </p><p>a. x[-n]</p><p><img vspace="5" hspace="5" src="fig6_aa.PNG" alt=""> </p><p>b. x[n+6]</p><p><img vspace="5" hspace="5" src="fig6_b.PNG" alt=""> </p><p>c. x[n-6]</p><p><img vspace="5" hspace="5" src="fig6_c.PNG" alt=""> </p><p>d. x[3n]</p><p><img vspace="5" hspace="5" src="fig6_d.PNG" alt=""> </p><p>e. <img src="ASySPrac3LuisBarreraIngridPulido_eq00062916740274524902.png" alt="$x[\frac{n}{3}]$" style="width:20px;height:14px;"></p><p><img vspace="5" hspace="5" src="fig6_e.PNG" alt=""> </p><p>f. x[3-n]</p><p><img vspace="5" hspace="5" src="fig6_f.PNG" alt=""> </p><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2017a</a><br></p></div><!--
 ##### SOURCE BEGIN #####
 %% Práctica 3: Señales en tiempo discreto
 %
@@ -124,7 +99,7 @@ plot(x,z)
 % Luis Francisco Barrera Bautista
 %
 % Ingrid Pulido Morales
-%% Objetivos:
+%% Objetivos
 %
 % * Manipulación básica de MATLAB
 % * Gráficas de señales reales y complejas discretas
@@ -140,63 +115,179 @@ plot(x,z)
 %
 % siendo n un número entero.
 % 
+% Este tipo de señales sus alturas solo se evaluan en números enteros.
 % Usualmente las señales en tiempo discreto se representan gráficamente de la siguiente manera
+% 
+%  
+% <<graf1in.PNG>>
+% 
+% *Escalamiento Horizontal de señales en tiempoo discreto*
+%
+% El escalamiento horizontal es una operación que se realiza a señales
+% base para generar nuevas señales en tiempo discreto.
+%
+% $g[n]=_{h}\varepsilon _{b} {f[n]} = f[bn]$
+%
+% Lo que significa que se va a escalar de manera horizontal (lo que indica la h) b
+% unidades a la señal. 
+% 
+% *Ejemplo 1* 
+%
+% Se tiene la siguiente señal discreta
+%
+% <<fig3in.PNG>>
+% 
+% <<fig4in.PNG>>
+% 
+% Se va a escalar a $f[n]$ con un escalamiento hoizontal con $b=2$.
+% Sustituyendo en la fórmula original donde exista $"n"$ por $"2n"$ y
+% simplificando, obtenemos
+%
+% <<fig2in.PNG>>
+% 
+% Esto significa que la altura será 1 si la n está entre $-\frac{3}{2}$ y $0$, pero solo se evalauarán los números enteros entre estas dos cantidades los cuales son $-1$ y $0$.          
+%
+% De igual forma en $-2n+1$ nos quedaremos solamente con el $1$.
+% Y se obtiene la siguiente gráfica
+%
+% <<fig5in.PNG>>
+% 
+% * Cuando $b>1$ se tiene una compresión de la señal, es decir, se hace más
+% corta horizontalmente.
+% 
+% También sucede que en el escalamiento horizontal de señales discretas se
+% pierden "datos" a lo cual se le llama Decimation, como se observa en la
+% gráfica $g[n]$
+%  
+% *Ejemplo 2*
+%
+% <<fig6in.PNG>>
+%
+% Para calcular las alturas tenemos que evaluar los enteros de $-9 \leq n\leq 0$ 
+% y $3\leq n\leq 9$ en $f[\frac{1}{3}n]$ y ver si el resultado está
+% definido en la gráfica original, es decir, si evaluamos a 9 en
+% $f[\frac{1}{3}n]$ queda como resultado un 3, el cual está definido en la
+% gráfica original con altura $1$, pero si evaluamos el numero 8, quedan
+% $\frac{8}{3}$ y  ese resultado no está definido en la gráfica. Por lo
+% tanto
+%
+% <<fig7in.PNG>>
+%
+% * Cuando  $0<b<1$ la señal se expande y en señales discretas cuando
+% expandimos una señal, podemos decir que le faltan "datos", o que ocurre una "Interpolación". 
+%
+% Las muestras faltantes no están definidas o se les considera como ceros.
+%
+% *Ejemplo 3*
+%
+%
+% * Cuando $b=-1$ la señal se invierte horizontalmente de la orginial como se muestra a
+% continuación. 
+% 
+% <<fig9in.PNG>>
+% 
+% <<fig8in.PNG>>
+%
+% * Si $b<-2$, la señal se comprime e invierte
+% horizontalmente.
+%
+% <<fig10in.PNG>>
+%
+% * Si $-1<b<0$, la señal se expande e invierte horizontalmente.
+%
+% <<fig11in.PNG>>
+%% Desarrollo
+%% Punto 1
+% *Creación de funciones* 
+% 
+% Se mostrará un ejemplo de una función que reciba 3 parámetros. Tomando en
+% cuenta que r $\epsilon \Re^{+}$, W $\epsilon \Re$ y n $\epsilon N$
+%
+%   function [res]=fun1(r,W,n)
+%   res = r.^n.*cos(W*n)+r.^n.*sin(W*n)*i;
+%   end
+%
+%% Punto 2
+%
+% *Funciones de $f: N\rightarrow R$*
+%
+n=-2:10;
+a=0.9;
+grafdisc1(n,a)
+%% Punto 3
+% * $f[n]$ para $r=1.1, \omega = 0.5$ y $n \epsilon -2...20$
+% 
+% <<fig32.PNG>> 
+%
+% <<fig32_1.PNG>>
+%
+% <<fig32_2.png>>
+
+%% Punto 4
+%
+% *Energía de una señal discreta*
+%
+% A continuación se muestra el código para obtener la Energía de una señal
+% en tiempo discreto
+%
+%
+%   function [energia] = energiadis(time,alt )
+%   energia=sum((abs(alt)).^2);
+%   x=time;
+%   y=alt;
+%   maxx=max(x)+1;
+%   minx=min(x)-1;
+%   maxy=max(y)+1;
+%   miny=min(y)-1;
+%   stem(x,y)
+%   axis([minx maxx miny maxy])
+%   end
+%
+%% Punto 5
+% *Problemas Resueltos (Lathi)*
+%
+% * 3.1.1 c): Encuentre la energía de la señal descrita.
+% 
+% Sabemos que 
+% 
+% $$E_{f}=\sum_{n=-\infty}^{\infty}\left \| f[n]  \right \| ^{2}$$
+%
+% Calculándola con la función anterior (energiadis)
+ENERGIA=energiadis([-4:6],[0,-9,-6,-3,0,3,6,9,0,0,0])
+
+%% Punto 6
+% * 3.2.3: Para la señal mostrada a continuación, bosqueja las siguientes señales
+%
+% <<fig6_a.PNG>>
+%
+% a. x[-n]
+%
+% <<fig6_aa.PNG>>
+%
+% b. x[n+6]
+%
+% <<fig6_b.PNG>>
+%
+% c. x[n-6]
+%
+% <<fig6_c.PNG>>
+%
+% d. x[3n]
+%
+% <<fig6_d.PNG>>
+%
+% e. $x[\frac{n}{3}]$
+%
+% <<fig6_e.PNG>>
+%
+% f. x[3-n]
+%
+% <<fig6_f.PNG>>
 %
 
-%%
-x=-7:7;
-y=[-1,-1,1,1,1,1,-1,-1,1,1,1,1,-1,-1,1];
-maxx=max(x)+1;
-minx=min(x)-1;
-maxy=max(y)+1;
-miny=min(y)-1;
-stem(x,y)
-axis([minx maxx miny maxy])
-%%
-f =@(n) exp(-n/5).*cos(pi*n/5).*(n>=0);
-%////////
-%%
-%%
-% 
-% 
-x=-10:10;
-y=4;
-z=fun1(x,y);
-plot(x,z)
-% figure
-% t=-20:0.1:20;
-% t1=-20:0.5:20;
-% plot(t,f(t),t,f(t),'ro',t1,f(t1))
-% %////////
-% figure
-% n = -20:20;
-% stem(n,f(n))
-% grid on
-% %////////
-% figure
-% subplot(1,3,1)
-% stem(n,f(-2*n))
-% grid on
-% subplot(1,3,2)
-% stem(n,f(n))
-% grid on
-% subplot(1,3,3)
-% stem(n,f(-2*n+1))
-% grid on
-% %///////////
-% figure
-% t = -10:pi/100:10;
-% f1t = cos(3*pi/7*t);
-% f2t = cos(17*pi/7*t);
-% plot(t,f1t,'k','LineWidth',3); hold on
-% plot(t,f2t,'r','LineWidth',3)
-% grid on
-% k= -10:10;
-% f1k = cos(3*pi/7*k);
-% f2k = cos(17*pi/7*k);
-% stem(k,f1k,'y','LineWidth',3)
-% %stem(k,f2k,'b','LineWidth',3)
-% hold off
+
+
+ 
 
 ##### SOURCE END #####
 --></body></html>
