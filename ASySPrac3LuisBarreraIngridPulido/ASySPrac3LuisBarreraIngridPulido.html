@@ -72,7 +72,7 @@ res = r.^n.*cos(W*n)+r.^n.*sin(W*n)*i;
 </pre><h2 id="6">Punto 2</h2><p><b>Funciones de <img src="ASySPrac3LuisBarreraIngridPulido_eq11762437903056693993.png" alt="$f: N\rightarrow R$" style="width:68px;height:14px;"></b></p><pre class="codeinput">n=-2:10;
 a=0.9;
 grafdisc1(n,a)
-</pre><img vspace="5" hspace="5" src="ASySPrac3LuisBarreraIngridPulido_01.png" style="width:560px;height:420px;" alt=""> <h2 id="7">Punto 3</h2><div><ul><li><img src="ASySPrac3LuisBarreraIngridPulido_eq08869918233192190351.png" alt="$f[n]$" style="width:19px;height:12px;"> para <img src="ASySPrac3LuisBarreraIngridPulido_eq00588923079635497361.png" alt="$r=1.1, \omega = 0.5$" style="width:79px;height:10px;"> y <img src="ASySPrac3LuisBarreraIngridPulido_eq15612259104710900260.png" alt="$n \epsilon -2...20$" style="width:54px;height:9px;"></li></ul></div><p><img vspace="5" hspace="5" src="fig32.PNG" alt=""> </p><p><img vspace="5" hspace="5" src="fig32_1.PNG" alt=""> </p><p><img vspace="5" hspace="5" src="fig32_2.png" alt=""> </p><h2 id="8">Punto 4</h2><p><b>Energ&iacute;a de una se&ntilde;al discreta</b></p><p>A continuaci&oacute;n se muestra el c&oacute;digo para obtener la Energ&iacute;a de una se&ntilde;al en tiempo discreto</p><pre class="language-matlab"><span class="keyword">function</span> [energia] = energiadis(time,alt )
+</pre><img vspace="5" hspace="5" src="ASySPrac3LuisBarreraIngridPulido_01.png" style="width:560px;height:420px;" alt=""> <h2 id="7">Punto 3</h2><div><ul><li><img src="ASySPrac3LuisBarreraIngridPulido_eq08869918233192190351.png" alt="$f[n]$" style="width:19px;height:12px;"> para <img src="ASySPrac3LuisBarreraIngridPulido_eq00588923079635497361.png" alt="$r=1.1, \omega = 0.5$" style="width:79px;height:10px;"> y <img src="ASySPrac3LuisBarreraIngridPulido_eq15612259104710900260.png" alt="$n \epsilon -2...20$" style="width:54px;height:9px;"></li></ul></div><p><img vspace="5" hspace="5" src="fig32.png" alt=""> </p><p><img vspace="5" hspace="5" src="fig32_1.png" alt=""> </p><p><img vspace="5" hspace="5" src="fig32_2.png" alt=""> </p><h2 id="8">Punto 4</h2><p><b>Energ&iacute;a de una se&ntilde;al discreta</b></p><p>A continuaci&oacute;n se muestra el c&oacute;digo para obtener la Energ&iacute;a de una se&ntilde;al en tiempo discreto</p><pre class="language-matlab"><span class="keyword">function</span> [energia] = energiadis(time,alt )
 energia=sum((abs(alt)).^2);
 x=time;
 y=alt;
@@ -217,9 +217,9 @@ grafdisc1(n,a)
 %% Punto 3
 % * $f[n]$ para $r=1.1, \omega = 0.5$ y $n \epsilon -2...20$
 % 
-% <<fig32.PNG>> 
+% <<fig32.png>> 
 %
-% <<fig32_1.PNG>>
+% <<fig32_1.png>>
 %
 % <<fig32_2.png>>
 %
